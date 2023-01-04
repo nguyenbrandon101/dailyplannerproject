@@ -1,0 +1,46 @@
+.username-section label {
+    padding-right: 1rem;
+  }
+  
+  .password-section label {
+    padding-right: 1.2rem
+  }
+  .login-form {
+    border: 2px solid white;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .password-section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .submit-button {
+    margin-right: 16px;
+  }
+  
+  .logout-button {
+    width: 150px;
+  }
+  
+  button {
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    height: 30px;
+    width: 60px;
+  }
+  
+  input {
+    border-radius: 2px;
+    border: none;
+  }
+  
+  input:focus {
+    outline: none;
+  }
