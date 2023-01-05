@@ -10,13 +10,20 @@ mongoose.connect(process.env.DATABASE_ACCESS)
 const userSchema = new mongoose.Schema({
     username: 'string',
     password: 'string',
-  });
+});
 
 const User = mongoose.model('User', userSchema);
 User.createCollection()
 app.use(cors());
 app.use(express.json())
 
+const todosSchema = new mongoose.Schema({
+    username: 'string',
+    todos: [],
+    done: Number,
+});
+
+const Todos = mongoose.model('Todos', todosSchema);
 
 app.post('/register', async (req,res) => {
     const {username,password} = req.body

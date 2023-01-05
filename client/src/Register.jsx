@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate} from "react-router-dom";
-
+import { CredentialsContext } from './App';
 const handleErrors = async (response) => {
     if (!response.ok) {
         throw Error(await response.json())
@@ -10,6 +10,7 @@ const Register = (e) => {
     const [username,setUsername] = React.useState("")
     const [password,setPassword] = React.useState("")
     const [error,setError] = React.useState("")
+    const [,setCred] = React.useContext(CredentialsContext)
     const navigate = useNavigate();
     const register = (event) => {
         event.preventDefault()
@@ -25,7 +26,8 @@ const Register = (e) => {
         })
         .then(handleErrors)
         .then(()=> {
-            navigate("/login")
+            setCred(username)
+            navigate("/todo")
         })
         .catch((error) => {
             setError("User already Exists")

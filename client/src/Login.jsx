@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useNavigate} from "react-router-dom";
+import { CredentialsContext } from './App';
 import Todo from './Todo';
 const handleErrors = async (response) => {
     if (!response.ok) {
@@ -10,6 +11,7 @@ const Login = () => {
     const [username,setUsername] = React.useState("")
     const [password,setPassword] = React.useState("")
     const [error,setError] = React.useState("")
+    const [,setCred] = React.useContext(CredentialsContext)
     const navigate = useNavigate();
     const loginUser = (event) => {
         event.preventDefault()
@@ -25,6 +27,7 @@ const Login = () => {
         })
         .then(handleErrors)
         .then(()=> {
+            setCred(username)
             navigate("/todo")
         })
         .catch((error) => {

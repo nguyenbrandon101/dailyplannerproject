@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+
+:root {
+	--pink: #EA40A4;
+	--lightblue: #3b3c3e;
+    --lightergrey : #4b4d4f;
+    --darkblue: #262626;
+	--light: #EEE;
+    --grey: #888;
+
+	--business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+	--personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+}
+
+.appbody {
+    width: 100vw;
+    height: 100vh;
+    min-width: 600px;
+    background-color: var(--lightblue);
+}
+.name {
+    color: white;
+}
+
+.logoutbut {
+    color: var(--pink);
+    position: relative;
+    bottom: 3.8rem;
+    right: 2rem;
+    float:right;
+}
+
+/* Progression and Weather Section*/
+/* Progression Circle*/
+.weatherProg {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: var(--darkblue);
+    height: 20rem;
+    border-radius: 30px;
+    align-items: center;
+}
+.progCirc {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    color: var(--pink);
+    border-color: var(--pink);
+}
+
+
+circle {
+    transition: all 1s ease-in-out;
+}
+
+/* Weather Section*/
+.weather {
+    height: 20rem;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-size: 950px 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    border-color: var(--pink);
+}
+
+.weatherTitle {
+    color: white;
+    font-family: 'Merriweather', serif;
+}
+
+.weatherDisplay img {
+    margin-top: -1rem;
+    width: 90px;
+    height: 90px;
+}
+.weather input {
+    border-radius: 10px;
+}
+.weatherInput {
+    margin-top: -2rem;
+}
+
+.invalidCity {
+    color: red;
+    margin-top: 3rem;
+    font-family: 'Merriweather', serif;
+    font-size: 25px
+}
+
+.cityName {
+    font-family: 'Merriweather', serif;
+    font-size: 25px;
+    color: white;
+    margin-top: 0.5rem;
+}
+
+.temp {
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
+    margin-top: -0.5rem;
+    color: white;
+    text-shadow:  3px 6px rgba(50, 50, 70, 0.3);
+}
+.weatherType {
+    font-family: 'Merriweather', serif;
+    margin-top: -0.8rem;
+    color: white;
+}
+
+/* To-Do Section*/
+.todoSection h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 25px;
+    color: white;
+    margin-left: 0.2rem;
+}
+
+.todoSection h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 20px;
+    color: white;
+    margin-left: 0.2rem;
+}
+
+.enterTodo{
+    width: 85.5%;
+    height: 18px;
+    padding: 1rem 1rem;
+    margin-bottom: 1.5rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-right-style: hidden;
+    background-color: var(--darkblue);
+    border-color: var(--pink);
+}
+
+.plusBut {
+    padding: 1.109rem 1rem;
+    margin-bottom: 1.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-left-style: hidden;
+    font-weight: 900;
+    font-size: 0.8rem;
+    background-color: var(--pink);
+    color: white;
+    border-color: var(--pink);
+}
+
+.enterTodo::placeholder{
+    color: white;
+    font-family: 'Merriweather', serif;
+  }
+
+.enterTodo {
+    color: white;
+    font-family: 'Merriweather', serif;
+}
+
+ul li {
+    list-style: none;
+    border-radius: 0.5rem;
+    background-color: var(--darkblue);
+    margin-left: -2.5rem;
+    display: flex;
+    border: 2px solid var(--pink);
+
+}
+
+
+.todoPage {
+    display: block;
+
+}
+
+.deleteBut {
+    font-family: 'Merriweather', serif;
+    margin-right: auto;
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    color: white;
+    background-color: var(--lightblue);
+}
+
+ .deleteBut:hover {
+    color: var(--pink);
+}
+
+.editBut {
+    font-family: 'Merriweather', serif;
+    margin-right: auto;
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    color: white;
+    background-color: var(--lightblue);
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+}
+
+.editBut:hover {
+    color: var(--pink);
+}
+
+.editSection {
+    display:block ;
+    flex-direction: row; 
+}
+
+.editInput {
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    width: 80%;
+    height: 2rem;
+    border: 2px solid var(--pink);
+    color: var(--darkblue);
+    margin-left: 1rem;
+}
+
+.editSection button {
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    font-family: 'Merriweather', serif;
+    background-color: var(--lightblue);
+    color: white;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    margin-left: 1rem;
+}
+
+.editSection button:hover {
+    color: var(--pink);
+}
+
+
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 55px;
+    padding-top: 3px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+.container span {
+    color: white;
+}
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: var(--lightblue);
+    margin-left: 1rem;
+    margin-top: 0.3rem;
+    border: 2px solid var();
+
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: var(--pink);
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: var(--lightblue);
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+.resetBut {
+    font-family: 'Merriweather', serif;
+    margin-right: auto;
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    color: white;
+    background-color: var(--lightblue);
+    margin-left: 0.2rem;
+}
+
+.resetBut:hover {
+    color: var(--pink);
+}
