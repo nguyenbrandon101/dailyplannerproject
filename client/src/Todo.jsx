@@ -3,6 +3,7 @@ import React from "react";
 import WeatherProgress from "./WeatherProgress";
 import { CredentialsContext } from "./App";
 import {useNavigate} from "react-router-dom";
+
 export default function Todo() {
     const navigate = useNavigate();
     const [cred,setCred] = React.useContext(CredentialsContext)
@@ -20,11 +21,25 @@ export default function Todo() {
 
 
     const [todos,setTodos] = React.useState([])
+
+    /** Persisting the TODOS */
+    const persist = (updateTodos) => {
+        fetch('http://localhost:4000/todo', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Basic ${cred}`
+            },
+            body: JSON.stringify(updateTodos),
+        }).then(()=> {})
+    }
+    /*
     React.useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos))
         localStorage.setItem("done", JSON.stringify(done))
         localStorage.setItem("total", JSON.stringify(total))
     }, [todos,done,total])
+    */
     /** Handle the submit todo task */
     function handleSubmit(event) {
         event.preventDefault()
@@ -32,8 +47,11 @@ export default function Todo() {
             return inputTodo
         }
         setTotal(prev => prev + 1)
-        setTodos(prev => [...prev,{id:`${inputTodo}-${Date.now()}` ,inputTodo: `${[inputTodo]}`, checkers: `${checkers}`, edit: `${edit}`}])
+        const newTodo = {user: `${cred}`,id:`${inputTodo}-${Date.now()}` ,inputTodo: `${[inputTodo]}`, checkers: `${checkers}`, edit: `${edit}`}
+        const updateTodos = [...todos, newTodo]
+        setTodos(updateTodos)
         setInputtodo("")
+        persist(updateTodos)
     }
     /** handle the checkbox */
     function handleCheck(td,event,done) {
