@@ -19,7 +19,6 @@ export default function Todo() {
     /** total task */
     const [total,setTotal] = React.useState(0)
 
-
     const [todos,setTodos] = React.useState([])
 
     /** Persisting the TODOS */
@@ -28,18 +27,23 @@ export default function Todo() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Basic ${cred}`
+                Authorization: `${cred}`
             },
             body: JSON.stringify(updateTodos),
         }).then(()=> {})
     }
-    /*
+    /** Grabbing Todos from Mongo*/
+    /* When the components first mount, we want to do a get request to get the TODO items*/
     React.useEffect(() => {
-        localStorage.setItem("todos", JSON.stringify(todos))
-        localStorage.setItem("done", JSON.stringify(done))
-        localStorage.setItem("total", JSON.stringify(total))
-    }, [todos,done,total])
-    */
+        fetch('http://localhost:4000/todo', {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `${cred}`
+            },
+        }).then((response)=> response.json())
+        .then((todos) => setTodos(todos))
+    },[todos])
     /** Handle the submit todo task */
     function handleSubmit(event) {
         event.preventDefault()
@@ -68,6 +72,7 @@ export default function Todo() {
             return task
         })
         setTodos(updateCheck)
+        persist(updateCheck)
     }
     /** Handle delete */
     function handleDelete(td) {
@@ -77,6 +82,7 @@ export default function Todo() {
         }
         /* for each todo if the id does not match then we update the todos with ids that dont match */
         setTodos(todos.filter((todo => todo.id !== td.id)))
+        persist(todos.filter((todo => todo.id !== td.id)))
     }
     /** Handle edit */
     function handleEdit(td,event) {
@@ -87,6 +93,7 @@ export default function Todo() {
             return task
         })
         setTodos(upDateEdit)
+        persist(upDateEdit)
     }
 
     function updateEdit(td) {
@@ -100,16 +107,17 @@ export default function Todo() {
             return task
         })
         setTodos(upDateEdit)
+        persist(upDateEdit)
     }
     /** Reset button */
     function handleReset() {
         setTodos([])
-        setDone(0)
-        setTotal(0)
+        persist([])
+
     }
 
     function logout() {
-        setCred("")
+        setCred(null)
         navigate("/")
     }
     return (

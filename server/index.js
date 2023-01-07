@@ -65,23 +65,25 @@ app.post('/login', async (req,res) => {
 
 app.post('/todo', async (req,res) => {
     const todosItems = req.body
-    const user = await User.findOne({
-        username: req.body[0].user,
-    }).exec()
-    const userTodo = await Todos.findOne({userId:req.body[0].user})
+    const userTodo = await Todos.findOne({userId:req.headers.authorization})
     if (!userTodo) {
         const userTodo = await Todos.create({
-            userId: req.body[0].user,
-            todos: todosItems,
-            done: 0
+            userId: req.headers.authorization,
+            todos: todosItems
         })
     } else {
         userTodo.todos = todosItems
         userTodo.save()
-
-        
     }
     res.json(todosItems)
+})
+
+app.get('/todo', async (req,res) => {
+    const user = req.headers.authorization
+    const userTodo = await Todos.findOne({userId:user})
+    if (userTodo != null) {
+        res.json(userTodo.todos)
+    }
 })
 
 app.get('/hello', (req,res) => {

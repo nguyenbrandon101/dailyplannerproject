@@ -8,7 +8,7 @@ import './style/Todo.css';
 
 export const CredentialsContext = React.createContext()
 function App() {
-  const credentialsState = React.useState("")
+  const credentialsState = React.useState(null)
   return (
     <div className="center">
       <CredentialsContext.Provider value={credentialsState}>
