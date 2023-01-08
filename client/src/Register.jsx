@@ -12,6 +12,8 @@ const Register = (e) => {
     const [error,setError] = React.useState("")
     const [,setCred] = React.useContext(CredentialsContext)
     const navigate = useNavigate();
+
+
     const register = (event) => {
         event.preventDefault()
         fetch('http://localhost:4000/register', {

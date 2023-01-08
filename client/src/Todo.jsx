@@ -20,6 +20,10 @@ export default function Todo() {
     const [total,setTotal] = React.useState(0)
 
     const [todos,setTodos] = React.useState([])
+    const [curr,setCurr] = React.useState(() => JSON.parse(localStorage.getItem("curr")) || cred)
+    React.useEffect(() => {
+        localStorage.setItem("curr", JSON.stringify(curr))
+    }, [curr])
 
     /** Persisting the TODOS */
     const persist = (updateTodos) => {
@@ -27,7 +31,7 @@ export default function Todo() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `${cred}`
+                Authorization: `${curr}`
             },
             body: JSON.stringify(updateTodos),
         }).then(()=> {})
@@ -39,7 +43,7 @@ export default function Todo() {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `${cred}`
+                Authorization: `${curr}`
             },
         }).then((response)=> response.json())
         .then((todos) => setTodos(todos))
@@ -51,7 +55,7 @@ export default function Todo() {
             return inputTodo
         }
         setTotal(prev => prev + 1)
-        const newTodo = {user: `${cred}`,id:`${inputTodo}-${Date.now()}` ,inputTodo: `${[inputTodo]}`, checkers: `${checkers}`, edit: `${edit}`}
+        const newTodo = {user: `${curr}`,id:`${inputTodo}-${Date.now()}` ,inputTodo: `${[inputTodo]}`, checkers: `${checkers}`, edit: `${edit}`}
         const updateTodos = [...todos, newTodo]
         setTodos(updateTodos)
         setInputtodo("")
@@ -76,7 +80,6 @@ export default function Todo() {
     }
     /** Handle delete */
     function handleDelete(td) {
-        setTotal(prev => prev -=1)
         if (td.checkers === false) {
             setDone(prev => prev - 1)
         }
@@ -94,6 +97,7 @@ export default function Todo() {
         })
         setTodos(upDateEdit)
         persist(upDateEdit)
+        
     }
 
     function updateEdit(td) {
@@ -118,11 +122,12 @@ export default function Todo() {
 
     function logout() {
         setCred(null)
+        localStorage.clear()
         navigate("/")
     }
     return (
         <div className="appbody">
-            <h1 className="name">Welcome {cred}</h1>
+            <h1 className="name">Welcome {curr}</h1>
             <button className="logoutbut"onClick={logout}>Log Out</button>
             <WeatherProgress
                 done={done}

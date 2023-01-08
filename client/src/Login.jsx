@@ -11,7 +11,7 @@ const Login = () => {
     const [username,setUsername] = React.useState("")
     const [password,setPassword] = React.useState("")
     const [error,setError] = React.useState("")
-    const [,setCred] = React.useContext(CredentialsContext)
+    const [cred,setCred] = React.useContext(CredentialsContext)
     const navigate = useNavigate();
     const loginUser = (event) => {
         event.preventDefault()
