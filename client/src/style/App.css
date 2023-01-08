@@ -14,10 +14,54 @@
     justify-content: center;
     flex-direction: column;
   }
+
+  .to-register {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    top: 8rem;
+  }
+
+  .to-register h1 {
+    font-size: 1rem;
+  }
+
+  .to-register a {
+    color: red;
+  }
+
+  .to-login {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1rem;
+  }
+
+  .to-login h1 {
+    font-size: 1rem;
+  }
+
+  .to-login a {
+    color: red;
+  }
   
+  .repassword {
+    position: relative;
+    right: 2rem;
+  }
+
+  .repassword-input {
+    position: relative;
+    right: 2rem;
+  }
   .password-section {
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: .5rem;
+  }
+
+  .error-password {
+    color: red;
+    font-size: 1.1rem;
   }
   
   .submit-button {
