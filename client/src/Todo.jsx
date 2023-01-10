@@ -133,12 +133,21 @@ export default function Todo() {
                 done={done}
                 total = {total}
             />
+            <div className="background">
+                <h1> Tasks </h1>
+            </div>
             <div className="todoSection">
                 <form>
                     <h1> CREATE A TODO</h1>
                     <h2> What's on your todo list?</h2>
-                    <input placeholder="ex. Work Out" onChange = {(event) => setInputtodo(event.target.value)} value = {inputTodo} className="enterTodo"></input><button type="Submit" onClick={handleSubmit} className="plusBut">+</button>
+                    <div className="create-but">
+                        <input placeholder="ex. Work Out"  type="text" onChange = {(event) => setInputtodo(event.target.value)} value = {inputTodo} className="enterTodo"></input>
+                        <input type="Submit" onClick={handleSubmit} className="plusBut" value="+"></input>
+                    </div>
+                    
                 </form>
+                <h1 className="todo-title"> Todo List:</h1>
+                <div className="all-todos">
                 {todos.map((td) => (
                     <ul>
                         <li>
@@ -149,8 +158,10 @@ export default function Todo() {
                                         <input type="checkbox" checked ={td.checkers ? '' : 'checked'}></input>
                                         <span onClick={() => handleCheck(td)} class="checkmark"></span>
                                     </label>
-                                    <button onClick={(event) => handleEdit(td)} className="editBut">Edit</button>
-                                    <button onClick={() => handleDelete(td)} className="deleteBut">Delete</button>
+                                    <div className="del-edit">
+                                        <button onClick={(event) => handleEdit(td)} className="editBut">Edit</button>
+                                        <button onClick={() => handleDelete(td)} className="deleteBut">Delete</button>
+                                    </div>
                                 </div>
                                 <div className="editSection">
                                     {td.edit === true && <input className = "editInput" onChange={(event) => setEupdate(event.target.value)}></input>}
@@ -161,6 +172,7 @@ export default function Todo() {
                     </ul>
                 ))}
                 <button className="resetBut" onClick = {handleReset}>New Day / Reset</button>
+                </div>
             </div>
         </div>
     )

@@ -3,75 +3,82 @@
 
 
 :root {
-	--pink: #EA40A4;
-	--lightblue: #3b3c3e;
-    --lightergrey : #4b4d4f;
-    --darkblue: #262626;
-	--light: #EEE;
-    --grey: #888;
-
-	--business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-	--personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+    --main:  rgb(10, 118, 62,0.43);
 }
 
 .appbody {
     width: 100vw;
     height: 100vh;
     min-width: 600px;
-    background-color: var(--lightblue);
+    margin-left: 1rem;
+    
 }
 .name {
     color: white;
+
 }
 
 .logoutbut {
-    color: var(--pink);
+    color: white;
     position: relative;
     bottom: 3.8rem;
-    right: 2rem;
-    float:right;
+    left: 112rem;
+}
+
+.logoutbut:hover {
+    color: #262626;
 }
 
 /* Progression and Weather Section*/
 /* Progression Circle*/
 .weatherProg {
     margin-top: 2rem;
-    display: grid;
-    grid-template-columns: auto auto;
-    background-color: var(--darkblue);
+    display: flex;
     height: 20rem;
+    width: 100vw;
     border-radius: 30px;
-    align-items: center;
+    justify-content: center;
 }
-.progCirc {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    font-family: 'Merriweather', serif;
+.date {
+    border: 2px solid white;
+    color: white;
+    height: 20rem;
+    width: 30rem;
+    border-radius: 30px;
+    margin-right: 12rem;
     text-align: center;
-    color: var(--pink);
-    border-color: var(--pink);
+}
+.day {
+    position: relative;
+    font-size: 3rem;
+    color: black;
+    margin-bottom: 2rem;
 }
 
-
-circle {
-    transition: all 1s ease-in-out;
+.today {
+    font-size: 4rem;
 }
+
+.dates {
+    font-size: 2rem;
+}
+
 
 /* Weather Section*/
 .weather {
     height: 20rem;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    background-size: 950px 350px;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 30rem;
     text-align: center;
-    border-color: var(--pink);
+    border-radius: 30px;
+    align-items: center;
+    align-content: center;
+    border: 2px solid white;
+    display: inline-block;
+    margin-left: 12rem;
 }
 
 .weatherTitle {
     color: white;
-    font-family: 'Merriweather', serif;
 }
 
 .weatherDisplay img {
@@ -112,20 +119,34 @@ circle {
     margin-top: -0.8rem;
     color: white;
 }
+/* Background */
+.background {
+    margin-top: 2rem;
+    background-image: url(../img/forrest.jpg);
+    height: 30rem;
+    margin-right: 1rem;
+    background-size: 2050px 550px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 30px;
+}
 
+.background h1 {
+    position: relative;
+    color: white;
+    font-size: 4rem;
+    left:3rem;
+    top: 23rem;
+}
 /* To-Do Section*/
 .todoSection h1 {
-    font-family: 'Merriweather', serif;
     font-size: 25px;
     color: white;
-    margin-left: 0.2rem;
 }
 
 .todoSection h2 {
-    font-family: 'Merriweather', serif;
     font-size: 20px;
     color: white;
-    margin-left: 0.2rem;
 }
 
 .enterTodo{
@@ -133,44 +154,61 @@ circle {
     height: 18px;
     padding: 1rem 1rem;
     margin-bottom: 1.5rem;
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    border-right-style: hidden;
-    background-color: var(--darkblue);
-    border-color: var(--pink);
+    background-color: transparent;
+    border: 2px solid white;
+    border-right: none;
 }
 
+.create-but{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    
+}
 .plusBut {
-    padding: 1.109rem 1rem;
-    margin-bottom: 1.5rem;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-    border-left-style: hidden;
-    font-weight: 900;
-    font-size: 0.8rem;
-    background-color: var(--pink);
+    text-align: center;
     color: white;
-    border-color: var(--pink);
+    font-weight: 900;
+    font-size: 2rem;
+    position: relative;
+    border: 2px solid white;
+    height: 3.3rem;
+    top: -0.8rem;
+    left: -2rem;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    background-color: transparent;
 }
 
 .enterTodo::placeholder{
     color: white;
-    font-family: 'Merriweather', serif;
+    
   }
 
 .enterTodo {
     color: white;
-    font-family: 'Merriweather', serif;
+    width: 90vw;
 }
 
 ul li {
     list-style: none;
     border-radius: 0.5rem;
-    background-color: var(--darkblue);
+    background-color: transparent;
     margin-left: -2.5rem;
     display: flex;
-    border: 2px solid var(--pink);
+    border: 2px solid white;
+    width: 100%;
+    position: relative;
+    top: 1rem;
+    left: 1rem;
+    margin-bottom: 2.5rem;
+}
 
+.del-edit {
+    position: relative;
+    left: -1rem;
 }
 
 
@@ -180,31 +218,29 @@ ul li {
 }
 
 .deleteBut {
-    font-family: 'Merriweather', serif;
     margin-right: auto;
     border-radius: 0.5rem;
-    border: 2px solid black;
+    border: none;
     color: white;
-    background-color: var(--lightblue);
+    background-color: transparent;
 }
 
  .deleteBut:hover {
-    color: var(--pink);
+    background-color: transparent;
 }
 
 .editBut {
-    font-family: 'Merriweather', serif;
     margin-right: auto;
     border-radius: 0.5rem;
-    border: 2px solid black;
+    border: none;
     color: white;
-    background-color: var(--lightblue);
+    background-color: transparent;
     margin-left: 1rem;
     margin-right: 0.5rem;
 }
 
 .editBut:hover {
-    color: var(--pink);
+    background-color: transparent;
 }
 
 .editSection {
@@ -215,26 +251,35 @@ ul li {
 .editInput {
     margin-top: 1rem;
     border-radius: 0.5rem;
-    width: 80%;
+    width: 100%;
     height: 2rem;
-    border: 2px solid var(--pink);
-    color: var(--darkblue);
-    margin-left: 1rem;
+    border: 2px solid white;
+    color: black;
+    margin-left: 2rem;
+    background-color: transparent;
 }
 
 .editSection button {
     border-radius: 0.5rem;
-    border: 2px solid black;
-    font-family: 'Merriweather', serif;
-    background-color: var(--lightblue);
+    border: none;
+    background-color: transparent;
     color: white;
     margin-top: 0.5rem;
     margin-bottom: 0.3rem;
-    margin-left: 1rem;
+    margin-left: -0.5rem;
+    width: 10rem;
 }
 
 .editSection button:hover {
-    color: var(--pink);
+    color: white;
+}
+
+
+
+.all-todos {
+    width: 98vw;
+    background-color: var(--main);
+    border-radius: 5px;
 }
 
 
@@ -273,21 +318,21 @@ ul li {
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: var(--lightblue);
+    background-color: transparent;
     margin-left: 1rem;
     margin-top: 0.3rem;
-    border: 2px solid var();
+    border: 2px solid white;
 
   }
   
   /* On mouse-over, add a grey background color */
   .container:hover input ~ .checkmark {
-    background-color: var(--pink);
+    background-color: var(--main);
   }
   
   /* When the checkbox is checked, add a blue background */
   .container input:checked ~ .checkmark {
-    background-color: var(--lightblue);
+    background-color: var(--main);
   }
   
   /* Create the checkmark/indicator (hidden when not checked) */
@@ -315,15 +360,21 @@ ul li {
     transform: rotate(45deg);
   }
 .resetBut {
-    font-family: 'Merriweather', serif;
     margin-right: auto;
     border-radius: 0.5rem;
-    border: 2px solid black;
+    border: none;
     color: white;
-    background-color: var(--lightblue);
-    margin-left: 0.2rem;
+    margin-left: 0rem;
+    width: 10rem;
+    margin-bottom: 1rem;
 }
 
 .resetBut:hover {
-    color: var(--pink);
+    color: rgb(10, 118, 62,1);
+    background-color: transparent;
+}
+
+.todo-title {
+    text-align: center;
+    padding-top: 1rem;
 }

@@ -49,11 +49,28 @@ export default function WeatherProgress(props) {
             }
     }
 
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    today = mm + '/' + dd + '/' + yyyy;
+    const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+    const d = new Date();
+    let day = weekday[d.getDay()];
+
     return (
         <div className="weatherProg">
-            <div className="progCirc">
-                <h1>Task Progression</h1> 
-                <Pie percentage={(props.done/props.total)*100} colour={"#EA40A4"} className="pieLetter" />
+            <div className="date">
+                <h1>Today's Date :</h1> 
+                <div className="dates">
+                    <div className="day">
+                        {day} 
+                    </div>
+                    <div className="today">
+                        {today} 
+                    </div>
+                </div>
             </div>
             <div className="weather">
                 <h1 className="weatherTitle">Today's Weather</h1> 
